@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Don Carlos Cemetery</title>
+    <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        // Define the projections
+        proj4.defs('EPSG:3857', '+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs');
+
+        // Convert coordinates function for GeoJSON
+        function convertCoordinates(coord) {
+            const [x, y] = coord;
+            return proj4('EPSG:3857', 'EPSG:4326', [x, y]);
+        }
+
+        function convertGeoJSON(geojson) {
+            const converted = JSON.parse(JSON.stringify(geojson));
+            converted.features.forEach(feature => {
+                if (feature.geometry && feature.geometry.coordinates) {
+                    feature.geometry.coordinates = feature.geometry.coordinates.map(ring => 
+                        ring.map(coord => convertCoordinates(coord))
+                    );
+                }
+            });
+            return converted;
+        }
+
+        // Image bounds conversion
+        const mercatorBounds = {
+            left: 13913832.2416858375072479,
+            bottom: 858729.5314673165557906,
+            right: 13914290.7391222566366196,
+            top: 859048.8930357174249366
+        };
+
+        const topLeft = proj4('EPSG:3857', 'EPSG:4326', [mercatorBounds.left, mercatorBounds.top]);
+        const topRight = proj4('EPSG:3857', 'EPSG:4326', [mercatorBounds.right, mercatorBounds.top]);
+        const bottomRight = proj4('EPSG:3857', 'EPSG:4326', [mercatorBounds.right, mercatorBounds.bottom]);
+        const bottomLeft = proj4('EPSG:3857', 'EPSG:4326', [mercatorBounds.left, mercatorBounds.bottom]);
+
+        console.log('Converted coordinates:', {topLeft, topRight, bottomRight, bottomLeft});
+
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://api.maptiler.com/maps/satellite/style.json?key=slSuwEtNY8loqQWUZ9IO',
+            center: [123.8854, 10.3157],
+            zoom: 15,
+            bearing: 12
+        });
+
+        map.on('style.load', () => {
+            // Add georeferenced image source and layer
+            map.addSource('georeferenced-image', {
+                type: 'image',
+                url: 'CemeteryMap_georeferenced.png',
+                coordinates: [
+                    topLeft,
+                    topRight,
+                    bottomRight,
+                    bottomLeft
+                ]
+            });
+
+            map.addLayer({
+                id: 'georeferenced-image-layer',
+                type: 'raster',
+                source: 'georeferenced-image',
+                paint: {
+                    'raster-opacity': 0.7,
+                    'raster-fade-duration': 0
+                }
+            });
+
+            // Load and add GeoJSON data
+            fetch('./graves.geojson')
+                .then(response => response.json())
+                .then(data => {
+                    const convertedData = convertGeoJSON(data);
+                    
+                    map.addSource('grid', {
+                        type: 'geojson',
+                        data: convertedData
+                    });
+
+                    map.addLayer({
+                        'id': 'grid-fill',
+                        'type': 'fill',
+                        'source': 'grid',
+                        'paint': {
+                            'fill-color': '#088',
+                            'fill-opacity': 0.2
+                        }
+                    });
+
+                    map.addLayer({
+                        'id': 'grid-line',
+                        'type': 'line',
+                        'source': 'grid',
+                        'paint': {
+                            'line-color': '#000',
+                            'line-width': 1,
+                            'line-opacity': 0.8
+                        }
+                    });
+
+                    // Fit bounds while maintaining rotation
+                    const bounds = new maplibregl.LngLatBounds(
+                        bottomLeft,
+                        topRight
+                    );
+
+                    convertedData.features.forEach(feature => {
+                        feature.geometry.coordinates[0].forEach(coord => {
+                            bounds.extend(coord);
+                        });
+                    });
+
+                    map.fitBounds(bounds, {
+                        padding: 50,
+                        bearing: 12
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading GeoJSON:', error);
+                });
+        });
+
+        // Keep existing popup and hover functionality
+        map.on('click', 'grid-fill', (e) => {
+            if (e.features.length > 0) {
+                const feature = e.features[0];
+                const deceasedDetails = feature.properties.DeceasedDetails;
+                
+                if (deceasedDetails) {
+                    new maplibregl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(deceasedDetails)
+                        .addTo(map);
+                }
+            }
+        });
+
+        map.on('mouseenter', 'grid-fill', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'grid-fill', () => {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Add error handling
+        map.on('error', (e) => {
+            console.error('Map error:', e);
+        });
+    </script>
+</body>
+</html>
