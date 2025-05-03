@@ -10,6 +10,7 @@ use App\Http\Controllers\ApplicationController;
 
 Route::get('/apply', [ApplicationController::class, 'create'])->name('apply');
 Route::post('/apply', [ApplicationController::class, 'store'])->name('application.store');
+Route::get('/aboutus', [HomeController::class, 'about'])->name('about');
 Route::get('/welcome', [HomeController::class, 'index'])->name('welcome');
 Route::get('/', [LocationController::class, 'index'])->name('index');
 // Route::get('/', [MapController::class, 'index'])->name('index');
