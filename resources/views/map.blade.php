@@ -166,70 +166,102 @@
                             'fill-color': [
                                 'case',
                                 ['boolean', ['feature-state', 'selected'], false],
-                                '#ffff00', // selected color (yellow)
+                                '#ffff00', // Color when selected (red)
                                 ['boolean', ['feature-state', 'hover'], false],
-                                '#ffff00', // hover color (yellow)
-                                ['case',
-                                    ['==', ['get', 'type'], selectedNumericType],
-                                    getColorForLayer(file), // normal color for selectable plots
-                                    '#808080' // gray color for non-selectable plots
-                                ]
+                                '#ffff00', // Color when hovered (yellow)
+                                ['==', ['get', 'type'], selectedNumericType],
+                                getColorForLayer(file), // Default color for selectable plots
+                                '#808080' // Gray color for non-selectable plots
                             ],
                             'fill-opacity': [
                                 'case',
                                 ['boolean', ['feature-state', 'selected'], false],
-                                1, // selected opacity
+                                1, // Full opacity when selected
                                 ['boolean', ['feature-state', 'hover'], false],
-                                1, // hover opacity
-                                ['case',
-                                    ['==', ['get', 'type'], selectedNumericType],
-                                    0.8, // normal opacity for selectable plots
-                                    0.3  // reduced opacity for non-selectable plots
-                                ]
+                                1, // Full opacity when hovered
+                                ['==', ['get', 'type'], selectedNumericType],
+                                0.8, // Normal opacity for selectable plots
+                                0.3  // Reduced opacity for non-selectable plots
                             ],
-                            'fill-outline-color': '#ffffff'
+                            'fill-outline-color': '#ffffff' // White border color
+                        }
+                    });
+
+                    // Add a layer for plot numbers
+                    map.addLayer({
+                        'id': `${file}-labels`,
+                        'type': 'symbol',
+                        'source': file,
+                        'layout': {
+                            'text-field': ['get', 'plot'], // Use the 'plot' field for the plot number
+                            'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
+                            'text-size': [
+                                'interpolate', // Use interpolation to adjust text size based on zoom level
+                                ['linear'],
+                                ['zoom'], // The zoom level
+                                17, 7,   // At zoom level 17, text size is 4
+                                24, 25    // At zoom level 20, text size is 25
+                            ],
+                            'text-offset': [0, 0], // Center the text in the middle of the box
+                            'text-anchor': 'center' // Anchor the text to the center
+                        },
+                        'paint': {
+                            'text-color': '#000000', // Color of the plot number text
+                            'text-opacity': [
+                                'interpolate', // Use interpolation to adjust text opacity based on zoom level
+                                ['linear'],
+                                ['zoom'], // The zoom level
+                                17, 0,    // At zoom level 17, text is invisible
+                                20, 1      // At zoom level 20 and above, text is fully visible
+                            ]
                         }
                     });
 
                     let hoveredFeatureId = null;
 
-                    // Handle mousemove events with type checking
+                    // Handle mousemove events for hover state
                     map.on('mousemove', `${file}-layer`, (e) => {
                         if (e.features.length > 0) {
                             const feature = e.features[0];
                             const featureType = parseInt(feature.properties.type);
-                            
+
+                            // Check if the feature type matches the selected grave type
                             if (featureType === selectedNumericType) {
                                 map.getCanvas().style.cursor = 'pointer';
-                                
-                                if (hoveredFeatureId !== null) {
-                                    map.setFeatureState(
-                                        { source: file, id: hoveredFeatureId },
-                                        { hover: false }
-                                    );
-                                }
 
-                                hoveredFeatureId = feature.id;
+                                // Set hover state for the feature
                                 map.setFeatureState(
-                                    { source: file, id: hoveredFeatureId },
+                                    { source: file, id: feature.id },
                                     { hover: true }
                                 );
+
+                                // Update hoveredFeatureId
+                                if (hoveredFeatureId !== feature.id) {
+                                    // Reset hover state for the previously hovered feature
+                                    if (hoveredFeatureId !== null) {
+                                        map.setFeatureState(
+                                            { source: file, id: hoveredFeatureId },
+                                            { hover: false }
+                                        );
+                                    }
+                                    hoveredFeatureId = feature.id; // Update to the new hovered feature
+                                }
                             } else {
-                                map.getCanvas().style.cursor = 'not-allowed';
+                                map.getCanvas().style.cursor = 'not-allowed'; // Change cursor if not selectable
                             }
                         }
                     });
 
-                    // Handle mouseleave events
+                    // Handle mouseleave events to reset hover state
                     map.on('mouseleave', `${file}-layer`, () => {
+                        map.getCanvas().style.cursor = '';
                         if (hoveredFeatureId !== null) {
                             map.setFeatureState(
                                 { source: file, id: hoveredFeatureId },
-                                { hover: false }
+                                { hover: false } // Reset hover state
                             );
                         }
-                        hoveredFeatureId = null;
-                        map.getCanvas().style.cursor = '';
+                        hoveredFeatureId = null; // Reset hovered feature ID
                     });
 
                     // Click event for selection with type checking
