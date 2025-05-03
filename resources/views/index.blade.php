@@ -4,6 +4,37 @@
 <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
 <link href="{{ asset('css/map.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+<style>
+.legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure it appears above the map */
+}
+
+.legend h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #ccc; /* Optional: add a border to the color box */
+}
+</style>
 @endsection
 
 @section('content')
@@ -25,6 +56,21 @@
     </div>
 </div>
 <div id="map"></div>
+<div class="legend">
+    <h4>Plot Types</h4>
+    <div class="legend-item">
+        <span class="color-box" style="background-color: #4daf4a;"></span> Apartment
+    </div>
+    <div class="legend-item">
+        <span class="color-box" style="background-color: #ff7f00;"></span> Family Lawn Lot
+    </div>
+    <div class="legend-item">
+        <span class="color-box" style="background-color: #984ea3;"></span> Bone Niche
+    </div>
+    <div class="legend-item">
+        <span class="color-box" style="background-color: #378eb8;"></span> Private
+    </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -40,7 +86,7 @@
     let currentPopup = null;
 
     // Convert projected coordinates to geographic coordinates (EPSG:3857 to EPSG:4326)
-    const sw = proj4('EPSG:3857', 'EPSG:4326', [13913830.7403368949890137, 858724.7877268618904054]);
+    const sw = proj4('EPSG:3857', 'EPSG:4326', [13913830.7803368949890137, 858724.7878268618904054]);
     const ne = proj4('EPSG:3857', 'EPSG:4326', [13914284.9606690797954798, 859045.6364505873061717]);
 
     // Calculate the center of the image
@@ -49,15 +95,44 @@
         (sw[1] + ne[1]) / 2  // Average latitude
     ];
 
-    // Initialize map with higher zoom
+    // Initialize map with appropriate zoom and bearing based on device type
+    const isMobile = window.innerWidth <= 768; // Adjust this value as needed for your mobile breakpoint
+
     const map = new maplibregl.Map({
         container: 'map',
         style: 'https://api.maptiler.com/maps/satellite/style.json?key=slSuwEtNY8loqQWUZ9IO',
         center: center,
-        zoom: 16.9,
-        bearing: 12,
+        zoom: isMobile ? 17.05 : 17.9, // Set a lower zoom for mobile
+        bearing: isMobile ? -78 : 12, // Set bearing to -78 for mobile, 12 for desktop
         maxZoom: 24,
-        minZoom: 16.9
+        minZoom: isMobile ? 16.5 : 17 // Set a lower minimum zoom for mobile
+    });
+
+    // Fit the map to all features after it has loaded
+    map.on('load', () => {
+        // Fit bounds to all features
+        const bounds = new maplibregl.LngLatBounds();
+        const layers = ['apartment', 'lawnlots', 'boneniche', 'private'];
+
+        layers.forEach(layer => {
+            const source = map.getSource(layer);
+            if (source && source._data) {
+                source._data.features.forEach(feature => {
+                    feature.geometry.coordinates[0].forEach(coord => {
+                        bounds.extend(coord);
+                    });
+                });
+            }
+        });
+
+        // Fit the map to the bounds of all features
+        map.fitBounds(bounds, {
+            padding: 50,
+            maxZoom: 21.7,
+            duration: 2000,
+            bearing: isMobile ? -78 : 12, // Maintain the appropriate bearing during the fit
+            pitch: 0
+        });
     });
 
     // Add these event listeners after your map initialization
@@ -476,8 +551,7 @@
                         return feature;
                     });
 
-                    console.log(`Converted coordinates for ${file}:`, data.features[0].geometry.coordinates);
-
+                    // Add the GeoJSON source to the map
                     map.addSource(file, {
                         type: 'geojson',
                         data: data
@@ -491,31 +565,48 @@
                         'paint': {
                             'fill-color': [
                                 'case',
-                                ['boolean', ['feature-state', 'highlighted'], false],
-                                '#ffff00', // highlighted color (yellow)
-                                ['boolean', ['feature-state', 'selected'], false],
-                                '#ffff00', // selected color (yellow)
                                 ['boolean', ['feature-state', 'hover'], false],
-                                '#ffff00', // hover color (yellow)
-                                getColorForLayer(file) // default color
+                                '#ffff00', // Color when hovered (yellow)
+                                getColorForLayer(file) // Default color
                             ],
-                            'fill-opacity': [
-                                'case',
-                                ['boolean', ['feature-state', 'highlighted'], false],
-                                1, // highlighted opacity
-                                ['boolean', ['feature-state', 'selected'], false],
-                                1, // selected opacity
-                                ['boolean', ['feature-state', 'hover'], false],
-                                1, // hover opacity
-                                0.8 // default opacity
+                            'fill-opacity': 0.8,
+                            'fill-outline-color': '#ffffff' // White border color
+                        }
+                    });
+
+                    // Add a layer for plot numbers
+                    map.addLayer({
+                        'id': `${file}-labels`,
+                        'type': 'symbol',
+                        'source': file,
+                        'layout': {
+                            'text-field': ['get', 'plot'], // Use the 'plot' field for the plot number
+                            'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
+                            'text-size': [
+                                'interpolate', // Use interpolation to adjust text size based on zoom level
+                                ['linear'],
+                                ['zoom'], // The zoom level
+                                17, 4,   // At zoom level 17, text size is 4
+                                25, 25    // At zoom level 20, text size is 25
                             ],
-                            'fill-outline-color': '#ffffff'
+                            'text-offset': [0, 0], // Center the text in the middle of the box
+                            'text-anchor': 'center' // Anchor the text to the center
+                        },
+                        'paint': {
+                            'text-color': '#000000', // Color of the plot number text
+                            'text-opacity': [
+                                'interpolate', // Use interpolation to adjust text opacity based on zoom level
+                                ['linear'],
+                                ['zoom'], // The zoom level
+                                17, 0,    // At zoom level 17, text is invisible
+                                20, 1      // At zoom level 20 and above, text is fully visible
+                            ]
                         }
                     });
 
                     let hoveredFeatureId = null;
 
-                    // Handle mousemove events
+                    // Handle mousemove events for the fill layer
                     map.on('mousemove', `${file}-layer`, (e) => {
                         if (e.features.length > 0) {
                             map.getCanvas().style.cursor = 'pointer';
@@ -532,10 +623,20 @@
                                 { source: file, id: hoveredFeatureId },
                                 { hover: true }
                             );
+                        } else {
+                            // Reset cursor and hover state if no features are found
+                            map.getCanvas().style.cursor = '';
+                            if (hoveredFeatureId !== null) {
+                                map.setFeatureState(
+                                    { source: file, id: hoveredFeatureId },
+                                    { hover: false }
+                                );
+                                hoveredFeatureId = null;
+                            }
                         }
                     });
 
-                    // Handle mouseleave events
+                    // Handle mouseleave events for the fill layer
                     map.on('mouseleave', `${file}-layer`, () => {
                         if (hoveredFeatureId !== null) {
                             map.setFeatureState(
@@ -575,12 +676,12 @@
                                 return bounds.extend(coord);
                             }, new maplibregl.LngLatBounds(coordinates[0], coordinates[0]));
 
-                            // Zoom to the feature with padding and no rotation
+                            // Zoom to the feature with padding and set bearing based on device type
                             map.fitBounds(bounds, {
                                 padding: 50,
                                 maxZoom: 21.7,
                                 duration: 1000,
-                                bearing: 12,
+                                bearing: isMobile ? -78 : 12, // Set bearing to -78 for mobile, 12 for desktop
                                 pitch: 0
                             });
 
@@ -858,7 +959,7 @@
     function getColorForLayer(name) {
         switch(name) {
             case 'lawnlots': return '#ff7f00';
-            case 'private': return '#377eb8';
+            case 'private': return '#378eb8';
             case 'apartment': return '#4daf4a';
             case 'boneniche': return '#984ea3';
             default: return '#999999';
@@ -1166,11 +1267,15 @@
             selectedFeatureSource = null;
         }
 
-        // Reset the map view to the cemetery map center
+        // Reset the map view based on device type
+        const isMobile = window.innerWidth <= 768; // Adjust this value as needed for your mobile breakpoint
+        const resetZoom = isMobile ? 17.05 : 17.9; // Set a lower zoom for mobile
+        const resetBearing = isMobile ? -78 : 12; // Set bearing to -78 for mobile, 12 for desktop
+
         map.flyTo({
             center: center,
-            zoom: 17.9,
-            bearing: 12,
+            zoom: resetZoom,
+            bearing: resetBearing,
             pitch: 0,
             duration: 1000
         });
