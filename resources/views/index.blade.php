@@ -8,13 +8,14 @@
 .legend {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1; /* Ensure it appears above the map */
+    width: 200px; /* Default width for desktop */
 }
 
 .legend h4 {
@@ -33,6 +34,48 @@
     height: 20px;
     margin-right: 10px;
     border: 1px solid #ccc; /* Optional: add a border to the color box */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .legend {
+        width: 160px; /* Reduced width for mobile */
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 8px; /* Reduced padding for mobile */
+    }
+
+    .legend h4 {
+        font-size: 12px; /* Smaller header font size for mobile */
+    }
+
+    .maplibregl-popup-content {
+    padding: 0;
+    border-radius: 8px;
+    max-width: 370px;
+    max-height: 350px;
+    overflow: auto;
+    background: white;
+    width: 450px;
+}
+
+.deceased-details {
+        padding: 15px 10px; /* Reduced padding for mobile */
+    }
+
+    .deceased-details h2 {
+        font-size: 1.5em; /* Smaller font size for mobile */
+    }
+
+    .deceased-details h4 {
+        font-size: 1em; /* Smaller font size for mobile */
+    }
+
+    .deceased-details p {
+        font-size: 0.9em; /* Smaller font size for mobile */
+    }
+    .plot-header {
+    font-size: 1.4em;
+}
 }
 </style>
 @endsection
@@ -57,7 +100,7 @@
 </div>
 <div id="map"></div>
 <div class="legend">
-    <h4>Plot Types</h4>
+    <h4 style="text-align: center">Legend</h4>
     <div class="legend-item">
         <span class="color-box" style="background-color: #4daf4a;"></span> Apartment
     </div>
