@@ -73,6 +73,9 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="form-text">
+                                Your email will be used to send notifications about the status of your grave space or to inform if it has expired, needs renewal, or relocation.
+                            </div>
                         </div>
                         
                         <div class="mb-4">
@@ -91,7 +94,6 @@
                                 <div class="text-danger small mt-1">{{ $message }}</div>
                             @enderror
                         </div>
-                        
                         <div class="mb-3">
                             <label for="mobile" class="form-label">Phone Number</label>
                             <div class="input-group">
@@ -103,7 +105,6 @@
                                 @enderror
                             </div>
                         </div>
-                        
                         <div class="mb-4">
                             <label for="address" class="form-label">Address</label>
                             <textarea class="form-control @error('address') is-invalid @enderror" 
