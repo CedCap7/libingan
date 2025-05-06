@@ -133,7 +133,7 @@
                 <p class="fade-in delay-200">The main goal of DCCMS is to replace the traditional manual system of maintaining cemetery records with a reliable, digital alternative. By doing so, we aim to reduce errors, improve accessibility of data, and enhance transparency in managing interment records and lot availability.</p>
             </div>
             <div class="col-lg-6">
-                <img src="/images/about/system-overview.jpg" alt="DCCMS Dashboard" class="img-fluid rounded shadow-sm fade-in delay-300">
+                <img src="/images/about/purpos.jpg" alt="DCCMS Dashboard" class="img-fluid rounded shadow-sm fade-in delay-300">
             </div>
         </div>
     </div>
