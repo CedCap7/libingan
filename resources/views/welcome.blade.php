@@ -121,10 +121,10 @@
                 <h4 class="fade-in delay-100"></h4>
                 <p class="lead fade-in delay-200">Our simple application process is designed to get you started quickly and efficiently.</p>
                 <p class="fade-in delay-300">We are committed to providing compassionate and professional memorial services to honor your loved ones with dignity and respect.</p>
-                <a href="#" class="btn btn-outline-primary mt-3 fade-in delay-400">Learn More About Us</a>
+                <a href="{{route('about')}}" class="btn btn-outline-primary mt-3 fade-in delay-400">Learn More About Us</a>
             </div> 
             <div class="col-lg-6 fade-in">
-                <img src="/images/welcome/aboutus.jpg" class="img-fluid shadow fade-in" alt="About DCCMS" style="border-radius: 20px; overflow: hidden;">
+                <img src="/images/welcome/aboutusnew.jpg" class="img-fluid shadow fade-in" alt="About DCCMS" style="border-radius: 20px; overflow: hidden;">
             </div>
         </div>
     </div>
@@ -135,28 +135,28 @@
         <div class="row">
             <div class="col-md-3 mb-4">
                 <div class="card fade-in">
-                    <img src="/images/welcome/apartment.jpg" class="card-img-top" alt="Apartment">
+                    <img src="/images/welcome/apartmentnew.jpg" class="card-img-top" alt="Apartment">
                     <div class="card-body text-center">
                         <h5 class="card-title">Apartment</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem ligula, cursus at efficitur facilisis, molestie ut nibh.</p>
+                        <p class="card-text">A multi-level structure offering above-ground interment, our apartment-style crypts provide a dignified and space-efficient burial option. Each unit is designed for ease of access and maintenance, making it an ideal choice for families seeking secure, long-term memorialization.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card fade-in delay-100">
-                    <img src="/images/welcome/bone niche.jpg" class="card-img-top" alt="Bone Niche">
+                    <img src="/images/welcome/boneniche.jpg" class="card-img-top" alt="Bone Niche">
                     <div class="card-body text-center">
                         <h5 class="card-title">Bone Niche</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem ligula, cursus at efficitur facilisis, molestie ut nibh.</p>
+                        <p class="card-text">Bone niches offer a sacred and compact resting place for exhumed remains or cremated bones. Often placed within columbarium walls, these niches provide a respectful and culturally appropriate option for families preserving ancestral heritage.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card fade-in delay-200">
-                    <img src="/images/welcome/family lawn lots.jpg" class="card-img-top" alt="Family Lawn Lots">
+                    <img src="/images/welcome/familylawnlot.jpg" class="card-img-top" alt="Family Lawn Lots">
                     <div class="card-body text-center">
                         <h5 class="card-title">Family Lawn Lots</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem ligula, cursus at efficitur facilisis, molestie ut nibh.</p>
+                        <p class="card-text">Family lawn lots are spacious ground burial plots designed to accommodate multiple family members. Surrounded by landscaped greenery, these lots offer a serene and lasting tribute for generations, encouraging family unity in remembrance.</p>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                     <img src="/images/welcome/private.jpg" class="card-img-top" alt="Private">
                     <div class="card-body text-center">
                         <h5 class="card-title">Private</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem ligula, cursus at efficitur facilisis, molestie ut nibh.</p>
+                        <p class="card-text">Private graves provide individual burial spaces in peaceful, well-maintained sections of the cemetery. These plots offer a quiet, personal setting for remembrance and are suitable for families who prefer a more secluded and intimate resting place for their loved ones.</p>
                     </div>
                 </div>
             </div>
