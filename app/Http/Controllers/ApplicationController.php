@@ -18,55 +18,56 @@ class ApplicationController extends Controller
     {
         try {
             // Validate incoming data
-            $validated = $request->validate([
-                'firstName'  => 'required|string|max:255',
-                'middleName' => 'nullable|string|max:255',
-                'lastName'   => 'required|string|max:255',
-                'email'      => 'required|email|max:255',
-                'mobile'     => 'required|string|max:50',
+        $validated = $request->validate([
+            'firstName'  => 'required|string|max:255',
+            'middleName' => 'nullable|string|max:255',
+            'lastName'   => 'required|string|max:255',
+            'email'      => 'required|email|max:255',
+            'mobile'     => 'required|string|max:50',
                 'country'    => 'required|string|max:2',
-                'region'     => 'required|string|max:10',
-                'province'   => 'required|string|max:10',
-                'city'       => 'required|string|max:10',
-                'barangay'   => 'required|string|max:10',
-                'street'     => 'required|string|max:255',
-                'gender'     => 'required|string|in:Male,Female',
+            'region'     => 'required|string|max:10',
+            'province'   => 'required|string|max:10',
+            'city'       => 'required|string|max:10',
+            'barangay'   => 'required|string|max:10',
+            'street'     => 'required|string|max:255',
+            'gender'     => 'required|string|in:Male,Female',
                 'service_to_avail' => 'required|string|in:Apartment,Family Lawn Lot,Private,Bone Niche',
-            ]);
+        ]);
 
-            // Format the complete address
-            $completeAddress = $validated['street'] . ', ' . 
-                             $this->getBarangayName($validated['barangay']) . ', ' . 
-                             $this->getCityName($validated['city']) . ', ' . 
-                             $this->getProvinceName($validated['province']) . ', ' . 
+        // Format the complete address
+        $completeAddress = $validated['street'] . ', ' . 
+                         $this->getBarangayName($validated['barangay']) . ', ' . 
+                         $this->getCityName($validated['city']) . ', ' . 
+                         $this->getProvinceName($validated['province']) . ', ' . 
                              $this->getRegionName($validated['region']) . ', ' .
                              'Philippines';
 
-            // Insert the application data into the 'application' table
-            DB::table('application')->insert([
-                'FirstName'    => $validated['firstName'],
-                'MiddleName'   => $validated['middleName'] ?? null,
-                'LastName'     => $validated['lastName'],
-                'Email'        => $validated['email'],
-                'Mobile'       => $validated['mobile'],
-                'Address'      => $completeAddress,
-                'Gender'       => $validated['gender'],
-                'Date_Applied' => now(),
-                'Status'       => '0',
+        // Insert the application data into the 'application' table
+        DB::table('application')->insert([
+            'FirstName'    => $validated['firstName'],
+            'MiddleName'   => $validated['middleName'] ?? null,
+            'LastName'     => $validated['lastName'],
+            'Email'        => $validated['email'],
+            'Mobile'       => $validated['mobile'],
+            'Address'      => $completeAddress,
+            'Gender'       => $validated['gender'],
+            'Date_Applied' => now(),
+            'Status'       => '0',
                 'service_to_avail' => $validated['service_to_avail'],
-            ]);
+        ]);
 
             // Check if the request is AJAX
             if ($request->ajax()) {
                 return response()->json([
                     'success' => true,
-                    'message' => 'Application submitted successfully!'
+                    'message' => 'Application submitted successfully!',
+                    'redirect' => route('welcome')
                 ]);
             }
 
             // For non-AJAX requests, redirect with success message
-            return redirect()->route('welcome')
-                            ->with('success', 'Your application has been submitted successfully!');
+        return redirect()->route('welcome')
+                         ->with('success', 'Your application has been submitted successfully!');
         } catch (\Illuminate\Validation\ValidationException $e) {
             if ($request->ajax()) {
                 return response()->json([

@@ -8,7 +8,31 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AddressController;
+use Illuminate\Support\Facades\DB;
 
+// API Routes
+Route::get('/api/plot-availability', function () {
+    try {
+        // Get all plot IDs that exist in the deceased table
+        $ownedPlotIds = DB::table('deceased')
+            ->select('Plot_ID')
+            ->distinct()
+            ->pluck('Plot_ID')
+            ->toArray();
+
+        // Create an array where the keys are plot IDs and values are true if owned
+        $availability = [];
+        foreach ($ownedPlotIds as $plotId) {
+            $availability[$plotId] = true;
+        }
+
+        return response()->json($availability);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});
+
+// Web Routes
 Route::get('/apply', [ApplicationController::class, 'create'])->name('apply');
 Route::post('/apply', [ApplicationController::class, 'store'])->name('application.store');
 

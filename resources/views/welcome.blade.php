@@ -138,7 +138,11 @@
                     <img src="/images/welcome/apartmentnew.jpg" class="card-img-top" alt="Apartment">
                     <div class="card-body text-center">
                         <h5 class="card-title">Apartment</h5>
-                        <p class="card-text">A multi-level structure offering above-ground interment, our apartment-style crypts provide a dignified and space-efficient burial option. Each unit is designed for ease of access and maintenance, making it an ideal choice for families seeking secure, long-term memorialization.</p>
+                        <p class="card-text">
+                            <strong>Price: ₱1,400</strong><br>
+                            <span class="text-muted">Duration: 8 years</span><br><br>
+                            Our apartment-style crypts offer an affordable and dignified above-ground interment solution. After the 8-year period, remains will be transferred to a bone niche for continued memorialization. This option is perfect for families seeking a temporary but respectful resting place with a clear transition plan.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -147,7 +151,11 @@
                     <img src="/images/welcome/boneniche.jpg" class="card-img-top" alt="Bone Niche">
                     <div class="card-body text-center">
                         <h5 class="card-title">Bone Niche</h5>
-                        <p class="card-text">Bone niches offer a sacred and compact resting place for exhumed remains or cremated bones. Often placed within columbarium walls, these niches provide a respectful and culturally appropriate option for families preserving ancestral heritage.</p>
+                        <p class="card-text">
+                            <strong>Price: ₱8,000</strong><br>
+                            <span class="text-muted">Permanent</span><br><br>
+                            Our bone niches provide a permanent, sacred resting place for exhumed remains. These compact, well-maintained spaces are designed for long-term memorialization, offering a respectful and culturally appropriate option for preserving ancestral heritage. Ideal for families seeking a permanent solution for their loved ones' remains.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -156,7 +164,11 @@
                     <img src="/images/welcome/familylawnlot.jpg" class="card-img-top" alt="Family Lawn Lots">
                     <div class="card-body text-center">
                         <h5 class="card-title">Family Lawn Lots</h5>
-                        <p class="card-text">Family lawn lots are spacious ground burial plots designed to accommodate multiple family members. Surrounded by landscaped greenery, these lots offer a serene and lasting tribute for generations, encouraging family unity in remembrance.</p>
+                        <p class="card-text">
+                            <strong>Price: ₱100,000</strong><br>
+                            <span class="text-muted">Permanent Ownership</span><br><br>
+                            Family lawn lots offer permanent ownership of spacious ground burial plots, perfect for multiple family members. These exclusive spaces come with perpetual care and maintenance, ensuring a serene and lasting tribute for generations. Includes landscaping, maintenance, and the right to pass ownership to family members.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -165,7 +177,46 @@
                     <img src="/images/welcome/private.jpg" class="card-img-top" alt="Private">
                     <div class="card-body text-center">
                         <h5 class="card-title">Private</h5>
-                        <p class="card-text">Private graves provide individual burial spaces in peaceful, well-maintained sections of the cemetery. These plots offer a quiet, personal setting for remembrance and are suitable for families who prefer a more secluded and intimate resting place for their loved ones.</p>
+                        <p class="card-text">
+                            <strong>Price: ₱20,000</strong><br>
+                            <span class="text-muted">Permanent Ownership</span><br><br>
+                            Private graves provide individual burial spaces with permanent ownership rights. These exclusive plots offer a peaceful, personal setting for remembrance in well-maintained sections of the cemetery. Includes perpetual care, maintenance, and the freedom to personalize the space according to your preferences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5 fade-in">
+                    <h2 class="mb-3">Contact Us</h2>
+                    <p class="lead">We're here to help you with any questions about our memorial services</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4 text-center fade-in delay-100">
+                        <div class="p-4 bg-white rounded shadow-sm h-100">
+                            <i class="bi bi-geo-alt-fill text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="mb-3">Visit Us</h5>
+                            <p class="mb-0">Municipal Hall<br>Don Carlos, Bukidnon</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center fade-in delay-200">
+                        <div class="p-4 bg-white rounded shadow-sm h-100">
+                            <i class="bi bi-telephone-fill text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="mb-3">Call Us</h5>
+                            <p class="mb-0">(123) 456-7890<br>Mon-Fri, 8AM-5PM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center fade-in delay-300">
+                        <div class="p-4 bg-white rounded shadow-sm h-100">
+                            <i class="bi bi-envelope-fill text-primary mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="mb-3">Email Us</h5>
+                            <p class="mb-0">info@dccms.com<br>support@dccms.com</p>
+                        </div>
                     </div>
                 </div>
             </div>
