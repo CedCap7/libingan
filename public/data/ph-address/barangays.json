@@ -1,0 +1,1924 @@
+{
+    "barangays": [
+        {
+            "id": "101301001",
+            "name": "Aglayan",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301002",
+            "name": "Bangcud",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301003",
+            "name": "Busdi",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301004",
+            "name": "Cabangahan",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301005",
+            "name": "Caburacanan",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301006",
+            "name": "Can-ayan",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301007",
+            "name": "Capitan Angel",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301008",
+            "name": "Casisang",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301009",
+            "name": "Dalwangan",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301010",
+            "name": "Impalambong",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301011",
+            "name": "Indalaza",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301012",
+            "name": "Kibalabag",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301013",
+            "name": "Kulaman",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301014",
+            "name": "Laguitas",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301015",
+            "name": "Linabo",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301016",
+            "name": "Magsaysay",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301017",
+            "name": "Mapulo",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301018",
+            "name": "Mapayag",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301019",
+            "name": "Miglamin",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301020",
+            "name": "Patpat",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301021",
+            "name": "Saint Peter",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301022",
+            "name": "San Jose",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301023",
+            "name": "Santo Niño",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301024",
+            "name": "Silae",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301025",
+            "name": "Simaya",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301026",
+            "name": "Sinanglanan",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301027",
+            "name": "Sumpong",
+            "city_id": "101301"
+        },
+        {
+            "id": "101301028",
+            "name": "Violeta",
+            "city_id": "101301"
+        },
+        {
+            "id": "101302001",
+            "name": "Bagontaas",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302002",
+            "name": "Banlag",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302003",
+            "name": "Barobo",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302004",
+            "name": "Batangan",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302005",
+            "name": "Catumbalon",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302006",
+            "name": "Colonia",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302007",
+            "name": "Concepcion",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302008",
+            "name": "Dagat-Kidavao",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302009",
+            "name": "Guinoyuran",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302010",
+            "name": "Kahapunan",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302011",
+            "name": "Lilingayon",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302012",
+            "name": "Lourdes",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302013",
+            "name": "Lumbayao",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302014",
+            "name": "Lumbo",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302015",
+            "name": "Lurugan",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302016",
+            "name": "Maapag",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302017",
+            "name": "Mabuhay",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302018",
+            "name": "Mailag",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302019",
+            "name": "Mount Nebo",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302020",
+            "name": "Nabago",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302021",
+            "name": "Pinatilan",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302022",
+            "name": "Poblacion",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302023",
+            "name": "San Carlos",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302024",
+            "name": "San Isidro",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302025",
+            "name": "Sinabuagan",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302026",
+            "name": "Sugod",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302027",
+            "name": "Tongantongan",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302028",
+            "name": "Tugaya",
+            "city_id": "101302"
+        },
+        {
+            "id": "101302029",
+            "name": "Vintar",
+            "city_id": "101302"
+        },
+        {
+            "id": "101303001",
+            "name": "Agusan Canyon",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303002",
+            "name": "Alae",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303003",
+            "name": "Dahilayan",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303004",
+            "name": "Dalirig",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303005",
+            "name": "Damilag",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303006",
+            "name": "Diclum",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303007",
+            "name": "Gango",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303008",
+            "name": "Guilang-guilang",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303009",
+            "name": "Kalugmanan",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303010",
+            "name": "Lindaban",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303011",
+            "name": "Lingion",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303012",
+            "name": "Lunocan",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303013",
+            "name": "Maluko",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303014",
+            "name": "Mambatangan",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303015",
+            "name": "Mampayag",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303016",
+            "name": "Mankilam",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303017",
+            "name": "Minsuro",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303018",
+            "name": "Poblacion",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303019",
+            "name": "Sankanan",
+            "city_id": "101303"
+        },
+        {
+            "id": "101303020",
+            "name": "Tankulan",
+            "city_id": "101303"
+        },
+        {
+            "id": "101304001",
+            "name": "Butong",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304002",
+            "name": "Cebole",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304003",
+            "name": "Delapa",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304004",
+            "name": "Dumalama",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304005",
+            "name": "Kibaling",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304006",
+            "name": "Kiokong",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304007",
+            "name": "Magsaysay",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304008",
+            "name": "Mantibugao",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304009",
+            "name": "Merangeran",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304010",
+            "name": "Mibantang",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304011",
+            "name": "Minongan",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304012",
+            "name": "Paitan",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304013",
+            "name": "Poblacion",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304014",
+            "name": "Salawagan",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304015",
+            "name": "San Isidro",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304016",
+            "name": "San Jose",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304017",
+            "name": "San Roque",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304018",
+            "name": "Santo Niño",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304019",
+            "name": "Sugod",
+            "city_id": "101304"
+        },
+        {
+            "id": "101304020",
+            "name": "Tunggon",
+            "city_id": "101304"
+        },
+        {
+            "id": "101305001",
+            "name": "Anahawon",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305002",
+            "name": "Bagong Silang",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305003",
+            "name": "Base Camp",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305004",
+            "name": "Bayabason",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305005",
+            "name": "Camp 1",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305006",
+            "name": "Colambugan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305007",
+            "name": "Dampilasan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305008",
+            "name": "Dologon",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305009",
+            "name": "Kauswagan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305010",
+            "name": "Kibulag",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305011",
+            "name": "Kipadukan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305012",
+            "name": "Lambaguhan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305013",
+            "name": "Lampanusan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305014",
+            "name": "Lapok",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305015",
+            "name": "Lumbayao",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305016",
+            "name": "Maramag",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305017",
+            "name": "Panadtalan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305018",
+            "name": "Panalsalan",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305019",
+            "name": "Poblacion",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305020",
+            "name": "San Miguel",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305021",
+            "name": "San Roque",
+            "city_id": "101305"
+        },
+        {
+            "id": "101305022",
+            "name": "Sugod",
+            "city_id": "101305"
+        },
+        {
+            "id": "101306001",
+            "name": "Bancud",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306002",
+            "name": "Bocboc",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306003",
+            "name": "Calao",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306004",
+            "name": "Don Carlos Norte",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306005",
+            "name": "Don Carlos Sur",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306006",
+            "name": "Embayao",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306007",
+            "name": "Halapitan",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306008",
+            "name": "Kalubihon",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306009",
+            "name": "Kasigkot",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306010",
+            "name": "Kibugtongan",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306011",
+            "name": "Maharlika",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306012",
+            "name": "Maraymaray",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306013",
+            "name": "Mauswagon",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306014",
+            "name": "New Nongnongan",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306015",
+            "name": "New Visayas",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306016",
+            "name": "Old Nongnongan",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306017",
+            "name": "Pinamaloy",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306018",
+            "name": "Poblacion",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306019",
+            "name": "San Antonio East",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306020",
+            "name": "San Antonio West",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306021",
+            "name": "San Francisco",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306022",
+            "name": "San Nicolas",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306023",
+            "name": "San Roque",
+            "city_id": "101306"
+        },
+        {
+            "id": "101306024",
+            "name": "Sinangguyan",
+            "city_id": "101306"
+        },
+        {
+            "id": "101307001",
+            "name": "Balintawak",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307002",
+            "name": "Bamban",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307003",
+            "name": "Baranugan",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307004",
+            "name": "Buntongon",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307005",
+            "name": "Cogonan",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307006",
+            "name": "East Kibawe",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307007",
+            "name": "Kiburiao",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307008",
+            "name": "Magsaysay",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307009",
+            "name": "Marapangi",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307010",
+            "name": "Mascariñas",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307011",
+            "name": "Natulongan",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307012",
+            "name": "New Kidapawan",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307013",
+            "name": "Old Kibawe",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307014",
+            "name": "Palacapao",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307015",
+            "name": "Pinamula",
+            "city_id": "101307"
+        },
+        {
+            "id": "101307016",
+            "name": "Romagooc",
+            "city_id": "101307"
+        },
+        {
+            "id": "101308001",
+            "name": "Baungon",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308002",
+            "name": "Bolongon",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308003",
+            "name": "Bugang",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308004",
+            "name": "Cabangahan",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308005",
+            "name": "Cabanganan",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308006",
+            "name": "Cabug",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308007",
+            "name": "Cagayan",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308008",
+            "name": "Cagdianao",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308009",
+            "name": "Cagubatan",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308010",
+            "name": "Cambugahay",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308011",
+            "name": "Candahug",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308012",
+            "name": "Candawisan",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308013",
+            "name": "Candulang",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308014",
+            "name": "Cantil",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308015",
+            "name": "Cantilan",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308016",
+            "name": "Cantubod",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308017",
+            "name": "Cantubod Norte",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308018",
+            "name": "Cantubod Sur",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308019",
+            "name": "Cantubod West",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308020",
+            "name": "Cantubod-Cantubod",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308021",
+            "name": "Cantubod-Cogon",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308022",
+            "name": "Cantubod-Poblacion",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308023",
+            "name": "Cantubod-Tubod",
+            "city_id": "101308"
+        },
+        {
+            "id": "101308024",
+            "name": "Cantubod-Ubos",
+            "city_id": "101308"
+        },
+        {
+            "id": "101309001",
+            "name": "Bancud",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309002",
+            "name": "Barongcot",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309003",
+            "name": "Bugwak",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309004",
+            "name": "Dungguan",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309005",
+            "name": "Hinapulan",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309006",
+            "name": "Kinura",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309007",
+            "name": "Kitamban",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309008",
+            "name": "Lapok",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309009",
+            "name": "Lingion",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309010",
+            "name": "Lungag",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309011",
+            "name": "Miaray",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309012",
+            "name": "New Visayas",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309013",
+            "name": "Poblacion",
+            "city_id": "101309"
+        },
+        {
+            "id": "101309014",
+            "name": "Sagundanon",
+            "city_id": "101309"
+        },
+        {
+            "id": "101310001",
+            "name": "Balangigay",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310002",
+            "name": "Balukbukan",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310003",
+            "name": "Binoongan",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310004",
+            "name": "Bolocaon",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310005",
+            "name": "Cabalantian",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310006",
+            "name": "Calapaton",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310007",
+            "name": "Dagumba-an",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310008",
+            "name": "Dagundalahon",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310009",
+            "name": "Dahilayan",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310010",
+            "name": "Datu Salumay",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310011",
+            "name": "Dumalaguing",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310012",
+            "name": "Gacub",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310013",
+            "name": "Indalasa",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310014",
+            "name": "Kipilas",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310015",
+            "name": "Kitobo",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310016",
+            "name": "Magsaysay",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310017",
+            "name": "Malobalo",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310018",
+            "name": "Napalico",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310019",
+            "name": "Poblacion",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310020",
+            "name": "San Isidro",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310021",
+            "name": "San Lorenzo",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310022",
+            "name": "Santo Niño",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310023",
+            "name": "Sinaysayan",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310024",
+            "name": "Tawas",
+            "city_id": "101310"
+        },
+        {
+            "id": "101310025",
+            "name": "White Kulaman",
+            "city_id": "101310"
+        },
+        {
+            "id": "101311001",
+            "name": "Adtuyon",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311002",
+            "name": "Bacusanon",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311003",
+            "name": "Bangahan",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311004",
+            "name": "Barandias",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311005",
+            "name": "Concepcion",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311006",
+            "name": "Gandingan",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311007",
+            "name": "Kimongko",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311008",
+            "name": "Lantapan",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311009",
+            "name": "Madaya",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311010",
+            "name": "Malipayon",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311011",
+            "name": "Mendis",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311012",
+            "name": "Natalac",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311013",
+            "name": "New Eden",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311014",
+            "name": "Old Eden",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311015",
+            "name": "Poblacion",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311016",
+            "name": "Portulin",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311017",
+            "name": "Sagundanon",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311018",
+            "name": "San Isidro",
+            "city_id": "101311"
+        },
+        {
+            "id": "101311019",
+            "name": "Santo Niño",
+            "city_id": "101311"
+        },
+        {
+            "id": "101312001",
+            "name": "Barangay 1",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312002",
+            "name": "Barangay 2",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312003",
+            "name": "Barangay 3",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312004",
+            "name": "Barangay 4",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312005",
+            "name": "Barangay 5",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312006",
+            "name": "Barangay 6",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312007",
+            "name": "Barangay 7",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312008",
+            "name": "Barangay 8",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312009",
+            "name": "Barangay 9",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312010",
+            "name": "Barangay 10",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312011",
+            "name": "Barangay 11",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312012",
+            "name": "Barangay 12",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312013",
+            "name": "Barangay 13",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312014",
+            "name": "Barangay 14",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312015",
+            "name": "Barangay 15",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312016",
+            "name": "Barangay 16",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312017",
+            "name": "Barangay 17",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312018",
+            "name": "Barangay 18",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312019",
+            "name": "Barangay 19",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312020",
+            "name": "Barangay 20",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312021",
+            "name": "Barangay 21",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312022",
+            "name": "Barangay 22",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312023",
+            "name": "Barangay 23",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312024",
+            "name": "Barangay 24",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312025",
+            "name": "Barangay 25",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312026",
+            "name": "Barangay 26",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312027",
+            "name": "Barangay 27",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312028",
+            "name": "Barangay 28",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312029",
+            "name": "Barangay 29",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312030",
+            "name": "Barangay 30",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312031",
+            "name": "Barangay 31",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312032",
+            "name": "Barangay 32",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312033",
+            "name": "Barangay 33",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312034",
+            "name": "Barangay 34",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312035",
+            "name": "Barangay 35",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312036",
+            "name": "Barangay 36",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312037",
+            "name": "Barangay 37",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312038",
+            "name": "Barangay 38",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312039",
+            "name": "Barangay 39",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312040",
+            "name": "Barangay 40",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312041",
+            "name": "Barangay 41",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312042",
+            "name": "Barangay 42",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312043",
+            "name": "Barangay 43",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312044",
+            "name": "Barangay 44",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312045",
+            "name": "Barangay 45",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312046",
+            "name": "Barangay 46",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312047",
+            "name": "Barangay 47",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312048",
+            "name": "Barangay 48",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312049",
+            "name": "Barangay 49",
+            "city_id": "101312"
+        },
+        {
+            "id": "101312050",
+            "name": "Barangay 50",
+            "city_id": "101312"
+        },
+        {
+            "id": "101313001",
+            "name": "Bala-oy",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313002",
+            "name": "Balukbukan",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313003",
+            "name": "Bantuanon",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313004",
+            "name": "Cabangahan",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313005",
+            "name": "Imbatug",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313006",
+            "name": "Kalilangan",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313007",
+            "name": "Lacolac",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313008",
+            "name": "Laguitas",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313009",
+            "name": "Liboran",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313010",
+            "name": "Lingating",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313011",
+            "name": "Mambatangan",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313012",
+            "name": "Manibaug",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313013",
+            "name": "Poblacion",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313014",
+            "name": "Salvador",
+            "city_id": "101313"
+        },
+        {
+            "id": "101313015",
+            "name": "San Miguel",
+            "city_id": "101313"
+        },
+        {
+            "id": "101314001",
+            "name": "Bala-oy",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314002",
+            "name": "Barangay 1",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314003",
+            "name": "Barangay 2",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314004",
+            "name": "Barangay 3",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314005",
+            "name": "Barangay 4",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314006",
+            "name": "Barangay 5",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314007",
+            "name": "Barangay 6",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314008",
+            "name": "Barangay 7",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314009",
+            "name": "Barangay 8",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314010",
+            "name": "Barangay 9",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314011",
+            "name": "Barangay 10",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314012",
+            "name": "Barangay 11",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314013",
+            "name": "Barangay 12",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314014",
+            "name": "Barangay 13",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314015",
+            "name": "Barangay 14",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314016",
+            "name": "Barangay 15",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314017",
+            "name": "Barangay 16",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314018",
+            "name": "Barangay 17",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314019",
+            "name": "Barangay 18",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314020",
+            "name": "Barangay 19",
+            "city_id": "101314"
+        },
+        {
+            "id": "101314021",
+            "name": "Barangay 20",
+            "city_id": "101314"
+        },
+        {
+            "id": "101315001",
+            "name": "Bontongon",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315002",
+            "name": "Bulonay",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315003",
+            "name": "Cawayan",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315004",
+            "name": "Hagpa",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315005",
+            "name": "Impalutao",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315006",
+            "name": "Kalabugao",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315007",
+            "name": "Kibenton",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315008",
+            "name": "La Fortuna",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315009",
+            "name": "Lambontong",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315010",
+            "name": "Lily",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315011",
+            "name": "Lumbayao",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315012",
+            "name": "Magsaysay",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315013",
+            "name": "Poblacion",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315014",
+            "name": "Sayawan",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315015",
+            "name": "Sumpong",
+            "city_id": "101315"
+        },
+        {
+            "id": "101315016",
+            "name": "Tunggoan",
+            "city_id": "101315"
+        },
+        {
+            "id": "101316001",
+            "name": "Bolocaon",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316002",
+            "name": "Culasi",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316003",
+            "name": "Kisolon",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316004",
+            "name": "Licoan",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316005",
+            "name": "Lupiagan",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316006",
+            "name": "Mambatangan",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316007",
+            "name": "Poblacion",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316008",
+            "name": "San Roque",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316009",
+            "name": "San Vicente",
+            "city_id": "101316"
+        },
+        {
+            "id": "101316010",
+            "name": "Villadolid",
+            "city_id": "101316"
+        },
+        {
+            "id": "101317001",
+            "name": "Alanib",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317002",
+            "name": "Baclayon",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317003",
+            "name": "Balila",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317004",
+            "name": "Bantuanon",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317005",
+            "name": "Basak",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317006",
+            "name": "Bugcaon",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317007",
+            "name": "Cawayan",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317008",
+            "name": "Cogonan",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317009",
+            "name": "Kaatuan",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317010",
+            "name": "Kibangay",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317011",
+            "name": "Kulasihan",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317012",
+            "name": "Lantapan",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317013",
+            "name": "Lumbayao",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317014",
+            "name": "Magsaysay",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317015",
+            "name": "Miglamin",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317016",
+            "name": "Patpat",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317017",
+            "name": "Poblacion",
+            "city_id": "101317"
+        },
+        {
+            "id": "101317018",
+            "name": "Songco",
+            "city_id": "101317"
+        },
+        {
+            "id": "101318001",
+            "name": "Bontongon",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318002",
+            "name": "Cawayan",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318003",
+            "name": "Kibangay",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318004",
+            "name": "Kulaman",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318005",
+            "name": "Lingating",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318006",
+            "name": "Lumbayao",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318007",
+            "name": "Magsaysay",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318008",
+            "name": "Miglamin",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318009",
+            "name": "Poblacion",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318010",
+            "name": "San Luis",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318011",
+            "name": "Sil-ipon",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318012",
+            "name": "Sumpong",
+            "city_id": "101318"
+        },
+        {
+            "id": "101318013",
+            "name": "Tunggoan",
+            "city_id": "101318"
+        }
+    ]
+} 

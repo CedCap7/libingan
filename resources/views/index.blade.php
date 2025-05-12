@@ -323,8 +323,8 @@
             result.addEventListener('mouseleave', function() {
                 if (hasValidFeatures) {
                     map.fitBounds(searchBounds, {
-                        padding: 50,
-                        maxZoom: 21.7,
+                        padding: { top: 200, bottom: 250, left: 50, right: 50 }, // Increased padding for all sides
+                        maxZoom: 20, // Keep the max zoom level
                         duration: 500,
                         bearing: 12,
                         pitch: 0
@@ -336,8 +336,8 @@
         // If we have valid features, fit the map to show all results
         if (hasValidFeatures) {
             map.fitBounds(searchBounds, {
-                padding: 50,
-                maxZoom: 21.7,
+                padding: { top: 200, bottom: 180, left: 50, right: 50 }, // Increased padding for all sides
+                maxZoom: 20, // Keep the max zoom level
                 duration: 1000,
                 bearing: 12,
                 pitch: 0

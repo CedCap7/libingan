@@ -1,0 +1,109 @@
+{
+    "cities": [
+        {
+            "id": "101301",
+            "name": "Malaybalay City",
+            "province_id": "1013"
+        },
+        {
+            "id": "101302",
+            "name": "Valencia City",
+            "province_id": "1013"
+        },
+        {
+            "id": "101303",
+            "name": "Manolo Fortich",
+            "province_id": "1013"
+        },
+        {
+            "id": "101304",
+            "name": "Quezon",
+            "province_id": "1013"
+        },
+        {
+            "id": "101305",
+            "name": "Maramag",
+            "province_id": "1013"
+        },
+        {
+            "id": "101306",
+            "name": "Don Carlos",
+            "province_id": "1013"
+        },
+        {
+            "id": "101307",
+            "name": "Kibawe",
+            "province_id": "1013"
+        },
+        {
+            "id": "101308",
+            "name": "Kadingilan",
+            "province_id": "1013"
+        },
+        {
+            "id": "101309",
+            "name": "Dangcagan",
+            "province_id": "1013"
+        },
+        {
+            "id": "101310",
+            "name": "Kitaotao",
+            "province_id": "1013"
+        },
+        {
+            "id": "101311",
+            "name": "Pangantucan",
+            "province_id": "1013"
+        },
+        {
+            "id": "101312",
+            "name": "Talakag",
+            "province_id": "1013"
+        },
+        {
+            "id": "101313",
+            "name": "Baungon",
+            "province_id": "1013"
+        },
+        {
+            "id": "101314",
+            "name": "Libona",
+            "province_id": "1013"
+        },
+        {
+            "id": "101315",
+            "name": "Impasugong",
+            "province_id": "1013"
+        },
+        {
+            "id": "101316",
+            "name": "Sumilao",
+            "province_id": "1013"
+        },
+        {
+            "id": "101317",
+            "name": "Lantapan",
+            "province_id": "1013"
+        },
+        {
+            "id": "101318",
+            "name": "Cabanglasan",
+            "province_id": "1013"
+        },
+        {
+            "id": "101319",
+            "name": "San Fernando",
+            "province_id": "1013"
+        },
+        {
+            "id": "101320",
+            "name": "Damulog",
+            "province_id": "1013"
+        },
+        {
+            "id": "101321",
+            "name": "Kalilangan",
+            "province_id": "1013"
+        }
+    ]
+} 
