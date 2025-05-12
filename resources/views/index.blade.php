@@ -16,7 +16,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 200px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .legend h4 {
@@ -41,7 +41,7 @@
 /* Instruction popup styles */
 .legend-instruction {
     position: absolute;
-    top: 20px;
+    top: -130px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.8);
@@ -58,12 +58,12 @@
         0% 0%,
         100% 0%,
         100% 75%,
-        60% 75%,
+        60% 95%,
         50% 100%,
-        40% 75%,
+        40% 95%,
         0% 75%
     );
-    z-index: 2;
+    z-index: 1000; /* Increased z-index to ensure it appears above other elements */
 }
 
 .legend-instruction p {
@@ -156,6 +156,27 @@
 
     .legend h4 {
         font-size: 12px;
+    }
+
+    .legend-instruction {
+        width: 160px;
+        height: 100px;
+        font-size: 12px;
+        padding: 10px 15px;
+        top: -100px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .legend-instruction p {
+        padding-right: 15px;
+        line-height: 1.3;
+    }
+
+    .close-instruction {
+        top: 6px;
+        right: 6px;
+        font-size: 14px;
+        padding: 2px 5px;
     }
 
     .maplibregl-popup-content {
@@ -290,7 +311,7 @@ input:checked + .slider:before {
 <div id="map"></div>
 <div class="legend">
     <div id="legend-instruction" class="legend-instruction">
-        <p>Click on the legend items to zoom to their locations</p>
+        <p>You can click on the legend items to zoom to their locations</p>
         <button class="close-instruction">×</button>
     </div>
     <h4 style="text-align: center">Legend</h4>
