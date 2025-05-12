@@ -3,7 +3,7 @@
 @section('styles')
 <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
 <link href="{{ asset('css/map.css') }}" rel="stylesheet" />
-<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet"  />
 <style>
 .legend {
     position: absolute;
@@ -14,13 +14,15 @@
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1; /* Ensure it appears above the map */
-    width: 200px; /* Default width for desktop */
+    z-index: 1;
+    width: 200px;
+    overflow: hidden;
 }
 
 .legend h4 {
     margin: 0 0 10px;
     font-size: 16px;
+    text-align: center;
 }
 
 .legend-item {
@@ -33,25 +35,25 @@
     width: 20px;
     height: 20px;
     margin-right: 10px;
-    border: 1px solid #ccc; /* Optional: add a border to the color box */
+    border: 1px solid #ccc;
 }
 
+/* Instruction popup styles */
 .legend-instruction {
     position: absolute;
-    bottom: 100%;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 15px 20px;
     border-radius: 15px;
-    margin-bottom: 10px;
     font-size: 14px;
     text-align: center;
     width: 200px;
+    height: 120px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.5s ease-in-out, floatUpDown 2s ease-in-out infinite;
-    padding-bottom: 40px;
     clip-path: polygon(
         0% 0%,
         100% 0%,
@@ -61,6 +63,7 @@
         40% 75%,
         0% 75%
     );
+    z-index: 2;
 }
 
 .legend-instruction p {
@@ -87,7 +90,6 @@
 .close-instruction:hover {
     background: rgba(255, 255, 255, 0.3);
 }
-
 
 @keyframes pointDown {
     0% {
@@ -124,46 +126,67 @@
     }
 }
 
+/* Availability legend animation */
+.availability-legend {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.availability-legend.show {
+    max-height: 100px;
+}
+
+.color-box.blue {
+    background-color: #007bff;
+}
+
+.color-box.red {
+    background-color: #dc3545;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .legend {
-        width: 160px; /* Reduced width for mobile */
-        font-size: 12px; /* Smaller font size for mobile */
-        padding: 8px; /* Reduced padding for mobile */
+        width: 160px;
+        font-size: 12px;
+        padding: 8px;
     }
 
     .legend h4 {
-        font-size: 12px; /* Smaller header font size for mobile */
+        font-size: 12px;
     }
 
     .maplibregl-popup-content {
-    padding: 0;
-    border-radius: 8px;
-    max-width: 370px;
-    max-height: 350px;
-    overflow: auto;
-    background: white;
-    width: 450px;
-}
+        padding: 0;
+        border-radius: 8px;
+        max-width: 370px;
+        max-height: 350px;
+        overflow: auto;
+        background: white;
+        width: 450px;
+    }
 
-.deceased-details {
-        padding: 15px 10px; /* Reduced padding for mobile */
+    .deceased-details {
+        padding: 15px 10px;
     }
 
     .deceased-details h2 {
-        font-size: 1.5em; /* Smaller font size for mobile */
+        font-size: 1.5em;
     }
 
     .deceased-details h4 {
-        font-size: 1em; /* Smaller font size for mobile */
+        font-size: 1em;
     }
 
     .deceased-details p {
-        font-size: 0.9em; /* Smaller font size for mobile */
+        font-size: 0.9em;
     }
+    
     .plot-header {
-    font-size: 1.4em;
-}
+        font-size: 1.4em;
+    }
 }
 
 .availability-toggle {
@@ -172,9 +195,10 @@
     right: 20px;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255);
     padding: 10px 15px;
-    border-radius: 25px;
+    border-radius: 10px;
+    margin-top: 40px !important;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -255,7 +279,7 @@ input:checked + .slider:before {
         </div>
         <div style="width: 350px; left: 10px; border-radius: 5px" id="search-results" class="search-results"></div>
     </div>
-    <div class="availability-toggle">
+    <div class="availability-toggle" style="margin-top: 5px; margin-left: 0px;">
         <label class="switch">
             <input type="checkbox" id="availability-toggle">
             <span class="slider round"></span>
@@ -281,6 +305,15 @@ input:checked + .slider:before {
     </div>
     <div class="legend-item" data-type="private" style="cursor: pointer;">
         <span class="color-box" style="background-color: #378eb8;"></span> Private
+    </div>
+    <div id="availability-legend" class="availability-legend">
+        <h4 style="text-align: center">Availability Status</h4>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: #007bff;"></span> Available
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: #dc3545;"></span> Owned
+        </div>
     </div>
 </div>
 @endsection
@@ -322,6 +355,7 @@ input:checked + .slider:before {
 
     // Fit the map to all features after it has loaded
     map.on('load', () => {
+
         // Fit bounds to all features
         const bounds = new maplibregl.LngLatBounds();
         const layers = ['apartment', 'lawnlots', 'boneniche', 'private'];
@@ -421,6 +455,13 @@ input:checked + .slider:before {
                 }
             });
         });
+    });
+
+    // Toggle availability legend visibility with animation
+    const availabilityToggle = document.querySelector('.availability-toggle input[type="checkbox"]');
+    availabilityToggle.addEventListener('change', () => {
+        const availabilityLegend = document.getElementById('availability-legend');
+        availabilityLegend.classList.toggle('show', availabilityToggle.checked);
     });
 
     // Add these event listeners after your map initialization
@@ -1603,24 +1644,35 @@ input:checked + .slider:before {
     // Call the function to update plot colors when the map is loaded
     map.on('load', updatePlotColors);
 
-    // Add this to your existing script section
     document.addEventListener('DOMContentLoaded', function() {
-        const instructionPopup = document.getElementById('legend-instruction');
+        // Get elements
+        const instructionPopup = document.querySelector('.legend-instruction');
         const closeButton = document.querySelector('.close-instruction');
+        const legend = document.querySelector('.legend');
+
+        // Ensure the instruction popup is visible
+        instructionPopup.style.display = 'block';
+        instructionPopup.style.opacity = '1';
         
         // Close the instruction popup when the close button is clicked
-        closeButton.addEventListener('click', function() {
+        closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
             instructionPopup.style.display = 'none';
         });
-        
+
+        // Close popup when clicking outside
+        legend.addEventListener('click', function(e) {
+            if (e.target !== legend) {
+                instructionPopup.style.display = 'none';
+            }
+        });
+
         // Hide the instruction popup after 10 seconds
         setTimeout(function() {
             instructionPopup.style.display = 'none';
         }, 10000);
-    });
 
-    // Add this to your existing script section
-    document.addEventListener('DOMContentLoaded', function() {
+        // Availability toggle handling
         const availabilityToggle = document.getElementById('availability-toggle');
         let plotAvailability = {};
 
