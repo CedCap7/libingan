@@ -60,7 +60,8 @@ class ApplicationController extends Controller
             if ($request->ajax()) {
                 return response()->json([
                     'success' => true,
-                    'message' => 'Application submitted successfully!'
+                    'message' => 'Application submitted successfully!',
+                    'redirect' => route('welcome')
                 ]);
             }
 

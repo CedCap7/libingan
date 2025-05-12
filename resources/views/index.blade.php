@@ -36,6 +36,94 @@
     border: 1px solid #ccc; /* Optional: add a border to the color box */
 }
 
+.legend-instruction {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-in-out, floatUpDown 2s ease-in-out infinite;
+    padding-bottom: 40px;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 75%,
+        60% 75%,
+        50% 100%,
+        40% 75%,
+        0% 75%
+    );
+}
+
+.legend-instruction p {
+    margin: 0;
+    padding-right: 20px;
+    line-height: 1.4;
+}
+
+.close-instruction {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 2px 6px;
+    line-height: 1;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.close-instruction:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+@keyframes pointDown {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 10px);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes floatUpDown {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, -10px);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .legend {
@@ -77,6 +165,76 @@
     font-size: 1.4em;
 }
 }
+
+.availability-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.toggle-label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
 </style>
 @endsection
 
@@ -97,20 +255,31 @@
         </div>
         <div style="width: 350px; left: 10px; border-radius: 5px" id="search-results" class="search-results"></div>
     </div>
+    <div class="availability-toggle">
+        <label class="switch">
+            <input type="checkbox" id="availability-toggle">
+            <span class="slider round"></span>
+        </label>
+        <span class="toggle-label">Show Availability</span>
+    </div>
 </div>
 <div id="map"></div>
 <div class="legend">
+    <div id="legend-instruction" class="legend-instruction">
+        <p>Click on the legend items to zoom to their locations</p>
+        <button class="close-instruction">×</button>
+    </div>
     <h4 style="text-align: center">Legend</h4>
-    <div class="legend-item">
+    <div class="legend-item" data-type="apartment" style="cursor: pointer;">
         <span class="color-box" style="background-color: #4daf4a;"></span> Apartment
     </div>
-    <div class="legend-item">
+    <div class="legend-item" data-type="lawnlots" style="cursor: pointer;">
         <span class="color-box" style="background-color: #ff7f00;"></span> Family Lawn Lot
     </div>
-    <div class="legend-item">
+    <div class="legend-item" data-type="boneniche" style="cursor: pointer;">
         <span class="color-box" style="background-color: #984ea3;"></span> Bone Niche
     </div>
-    <div class="legend-item">
+    <div class="legend-item" data-type="private" style="cursor: pointer;">
         <span class="color-box" style="background-color: #378eb8;"></span> Private
     </div>
 </div>
@@ -175,6 +344,82 @@
             duration: 2000,
             bearing: isMobile ? -78 : 12, // Maintain the appropriate bearing during the fit
             pitch: 0
+        });
+
+        // Add click handlers for legend items
+        const legendItems = document.querySelectorAll('.legend-item');
+        
+        legendItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const type = this.getAttribute('data-type');
+                const source = map.getSource(type);
+                
+                if (source && source._data) {
+                    // Create bounds object
+                    const bounds = new maplibregl.LngLatBounds();
+                    let hasValidFeatures = false;
+                    
+                    // Add all coordinates from the source to the bounds
+                    source._data.features.forEach(feature => {
+                        if (feature.geometry && feature.geometry.coordinates) {
+                            feature.geometry.coordinates[0].forEach(coord => {
+                                bounds.extend(coord);
+                                hasValidFeatures = true;
+                            });
+                        }
+                    });
+                    
+                    if (hasValidFeatures) {
+                        // Set bearing based on grave type and device type
+                        const bearing = isMobile
+                            ? (type === 'private' ? 12 : -78)  // On mobile: private is 12, all others are -78
+                            : (type === 'boneniche' ? 12 : (type === 'private' ? -78 : 12));  // On desktop: bone niche is 12, private is -78, others are 12
+                        
+                        // Set zoom levels based on grave type and device type
+                        const maxZoom = type === 'boneniche' 
+                            ? (isMobile ? 27.5 : 25.5)  // Higher zoom for mobile, lower for desktop
+                            : (type === 'private' ? 30.5 : 22.5);  // Further increased zoom for private
+                        const minZoom = type === 'boneniche' 
+                            ? (isMobile ? 24 : 22)  // Higher min zoom for mobile, lower for desktop
+                            : (type === 'private' ? 27 : 18);  // Further increased min zoom for private
+                        
+                        // Calculate bounds with a tighter fit for bone niche and private
+                        const padding = type === 'private'
+                            ? { top: 8, bottom: 8, left: 4, right: 4 }  // Further reduced padding for private
+                            : (type === 'boneniche'
+                                ? { top: 30, bottom: 30, left: 15, right: 15 }  // Original padding for bone niche
+                                : { top: 50, bottom: 50, left: 25, right: 25 }); // Normal padding for others
+                        
+                        // Fit the map to the bounds with adjusted padding and zoom
+                        map.fitBounds(bounds, {
+                            padding: padding,
+                            maxZoom: maxZoom,
+                            minZoom: minZoom,
+                            duration: 1000,
+                            bearing: bearing,
+                            pitch: 0
+                        });
+                        
+                        // Highlight all features of this type
+                        source._data.features.forEach(feature => {
+                            map.setFeatureState(
+                                { source: type, id: feature.id },
+                                { highlighted: true }
+                            );
+                        });
+                        
+                        // Remove highlight after 2 seconds
+                        setTimeout(() => {
+                            source._data.features.forEach(feature => {
+                                map.setFeatureState(
+                                    { source: type, id: feature.id },
+                                    { highlighted: false }
+                                );
+                            });
+                        }, 2000);
+                    }
+                }
+            });
         });
     });
 
@@ -629,8 +874,8 @@
                                 'interpolate', // Use interpolation to adjust text size based on zoom level
                                 ['linear'],
                                 ['zoom'], // The zoom level
-                                17, 4,   // At zoom level 17, text size is 4
-                                25, 25    // At zoom level 20, text size is 25
+                                17, 8,   // At zoom level 17, text size is 8 (increased from 4)
+                                25, 35    // At zoom level 25, text size is 35 (increased from 25)
                             ],
                             'text-offset': [0, 0], // Center the text in the middle of the box
                             'text-anchor': 'center' // Anchor the text to the center
@@ -946,7 +1191,7 @@
                                             });
 
                                             document.querySelector('.carousel__next')?.addEventListener('click', () => {
-                                                currentSlide = (currentSlide + 1) % totalSlides;
+                                                currentSlide = (currentSlide + 1) % slides.length;
                                                 updateCarousel();
                                             });
 
@@ -1357,6 +1602,106 @@
 
     // Call the function to update plot colors when the map is loaded
     map.on('load', updatePlotColors);
+
+    // Add this to your existing script section
+    document.addEventListener('DOMContentLoaded', function() {
+        const instructionPopup = document.getElementById('legend-instruction');
+        const closeButton = document.querySelector('.close-instruction');
+        
+        // Close the instruction popup when the close button is clicked
+        closeButton.addEventListener('click', function() {
+            instructionPopup.style.display = 'none';
+        });
+        
+        // Hide the instruction popup after 10 seconds
+        setTimeout(function() {
+            instructionPopup.style.display = 'none';
+        }, 10000);
+    });
+
+    // Add this to your existing script section
+    document.addEventListener('DOMContentLoaded', function() {
+        const availabilityToggle = document.getElementById('availability-toggle');
+        let plotAvailability = {};
+
+        // Function to fetch plot availability
+        async function fetchPlotAvailability() {
+            try {
+                const response = await fetch('/api/plot-availability', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Plot availability data:', data); // Debug log
+                plotAvailability = data;
+                updatePlotColors();
+            } catch (error) {
+                console.error('Error fetching plot availability:', error);
+            }
+        }
+
+        // Function to update plot colors based on availability
+        function updatePlotColors() {
+            const layers = ['apartment', 'lawnlots', 'boneniche', 'private'];
+            
+            layers.forEach(layer => {
+                const source = map.getSource(layer);
+                if (source && source._data) {
+                    source._data.features.forEach(feature => {
+                        const plotId = String(feature.properties.id);
+                        const isOwned = plotAvailability[plotId] === true;
+                        
+                        console.log('Plot ID:', plotId, 'Is Owned:', isOwned, 'Availability Data:', plotAvailability); // Debug log
+                        
+                        // Set feature state for highlighting
+                        map.setFeatureState(
+                            { source: layer, id: feature.id },
+                            { 
+                                isOwned: isOwned,
+                                showAvailability: availabilityToggle.checked
+                            }
+                        );
+                    });
+                }
+            });
+        }
+
+        // Update the layer paint properties
+        map.on('load', () => {
+            const layers = ['apartment', 'lawnlots', 'boneniche', 'private'];
+            
+            layers.forEach(layer => {
+                map.setPaintProperty(`${layer}-layer`, 'fill-color', [
+                    'case',
+                    ['boolean', ['feature-state', 'showAvailability'], false],
+                    [
+                        'case',
+                        ['boolean', ['feature-state', 'isOwned'], false],
+                        '#ff0000', // Red for owned
+                        '#2196F3'  // Blue for available
+                    ],
+                    getColorForLayer(layer) // Default color when toggle is off
+                ]);
+            });
+
+            // Fetch initial plot availability
+            fetchPlotAvailability();
+        });
+
+        // Add toggle event listener
+        availabilityToggle.addEventListener('change', function() {
+            updatePlotColors();
+        });
+    });
 
 </script>
 @endsection
