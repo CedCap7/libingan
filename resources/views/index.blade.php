@@ -846,9 +846,13 @@ input:checked + .slider:before {
 
     map.on('style.load', () => {
         // Add the georeferenced image
+        const imageUrl = isMobile 
+            ? '{{ asset('images/CemeteryMap_georeferencedone.png') }}'
+            : '{{ asset('images/CemeteryMap_georeferenced.png') }}';
+
         map.addSource('cemetery-map', {
             'type': 'image',
-            'url': '{{ asset('images/CemeteryMap_georeferenced.png') }}',
+            'url': imageUrl,
             'coordinates': [
                 [sw[0], ne[1]],
                 [ne[0], ne[1]],
